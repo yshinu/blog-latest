@@ -37,15 +37,20 @@ function NavBar() {
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" className='flex items-center gap-1 text-lg' href="#">
+            <Image src={'/icons/xx.svg'} alt={'学习'} width={16} height={16}/>
             学习
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="#">生活</Link>
+          <Link href="#" className='flex items-center gap-1 text-lg'>
+            <Image src={'/icons/sh.svg'} alt={'生活'} width={16} height={16}/>
+            生活
+            </Link>
         </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="#">
+        <NavbarItem >
+          <Link color="foreground" href="#" className='flex items-center gap-1 text-lg'>
+            <Image src={'/icons/gd.svg'} alt={'归档'} width={16} height={16}/>
             归档
           </Link>
         </NavbarItem>
@@ -87,12 +92,12 @@ function NavBar() {
             />
           </DropdownTrigger>
           <DropdownMenu aria-label="Profile Actions" variant="flat">
-            <DropdownItem key="profile" className="h-14 gap-2">
+            <DropdownItem key="profile" className="h-14 gap-2 bg-slate-200">
               <p className="font-semibold">当前登录</p>
               <p className="font-semibold">zoey@example.com</p>
             </DropdownItem>
 
-            <DropdownItem key="logout" >
+            <DropdownItem key="logout" className=" bg-slate-200" >
              <span className=' text-red-300'>登出</span>
             </DropdownItem>
           </DropdownMenu>

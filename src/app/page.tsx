@@ -1,4 +1,5 @@
 import HomeHeader from "@/components/homeHeader";
+import ListContent from "@/components/list/listContent";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,5 +9,8 @@ export const metadata: Metadata = {
 export default function Home(){
   return <main >
     <HomeHeader/>
+    <div className=" bg-slate-50 flex justify-center gap-24">
+      <ListContent/>
+    </div>
   </main>
 }

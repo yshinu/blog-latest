@@ -17,7 +17,8 @@ const config: Config = {
     },
   },
   plugins: [
-    nextui()
+    nextui(),
+    
   ],
 };
 export default config;

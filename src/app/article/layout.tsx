@@ -9,7 +9,9 @@ export default function RootLayout({
 
        <div>
          <OtherHeader/>
-         {children}
+          <div className="flex justify-center">
+          {children}
+          </div>
        </div>
 
   );

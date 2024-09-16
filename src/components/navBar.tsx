@@ -33,7 +33,7 @@ function NavBar() {
     <Navbar height={"70px"} maxWidth='xl' isBordered isBlurred className=" w-full">
       <NavbarBrand>
         <Image src={'/icons/logo.png'} alt={'logo'} width={30} height={30} />
-        <p className="font-bold text-inherit">你好哈哈</p>
+        <Link href={"/"} className="font-bold text-inherit">你好哈哈</Link>
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>

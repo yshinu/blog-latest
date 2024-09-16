@@ -9,10 +9,9 @@ function OtherHeader() {
         <Image
           src="/images/homeHeader.png"
           alt="OtherHeader"
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center"
-          className="h-full w-full"
+          width={1920}
+          height={1080}
+          className="h-full w-full object-cover object-center"
         />
 
         <div className="absolute flex items-center justify-center text-white flex-col gap-8  inset-0 bg-black bg-opacity-10 z-10">

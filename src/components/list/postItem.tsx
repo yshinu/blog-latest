@@ -13,18 +13,18 @@ function PostItem({ id }: { id: string }) {
       >
         <CardBody>
           <div className="w-full flex flex-col sm:flex-row sm:items-center sm:gap-12 sm:justify-start justify-center">
-            <div className={`w-full h-[100px] sm:max-w-[240px] sm:max-h-[200px] ${(+id)%2===0?"order-1":"order-2"}`}>
+            <div className={`w-full h-[100px] sm:max-w-[240px] sm:max-h-[200px] ${(+id)%2===0?"sm:order-1":"sm:order-2"}`}>
               <Link href={`/article/content/${id}`}>
                 <Image
                   src="/images/cover.jpg"
                   alt="NextUI Album Cover"
                   width={200}
                   height={160}
-                  className="w-full h-full rounded-lg shadow-sm transition-transform duration-300 transform hover:scale-110 cursor-pointer"
+                  className="w-full h-full rounded-lg shadow-sm transition-transform duration-300 transform  cursor-pointer"
                 />
               </Link>
             </div>
-            <div className={`flex flex-col gap-4 order-1  ${(+id)%2===0?"order-2":"order-1"}`}>
+            <div className={`flex flex-col gap-4 order-1  ${(+id)%2===0?"sm:order-2":"sm:order-1"}`}>
               <Link href={`/article/content/${id}`}>
                 <h4 className=" font-bold test-4xl cursor-pointer">
                   如何学习Nextjs？

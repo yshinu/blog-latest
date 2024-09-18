@@ -1,24 +1,38 @@
-"use client";
-import { signInAction } from "@/action/authAction";
-import { signInObjectType } from "@/lib/types";
-import { signInSchema } from "@/lib/zod";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
+'use client';
+import { signInAction } from '@/action/authAction';
+import { signInObjectType } from '@/lib/types';
+import { signInSchema } from '@/lib/zod';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useState } from 'react';
+import 'react-toastify/dist/ReactToastify.css';
+import { Slide, ToastContainer, toast } from 'react-toastify';
 export function SignIn() {
   const {
     register,
     handleSubmit,
     watch,
 
-    formState: { errors,isSubmitting},
+    formState: { errors, isSubmitting },
   } = useForm<signInObjectType>({
     resolver: zodResolver(signInSchema),
   });
   const onSubmit: SubmitHandler<signInObjectType> = async (data) => {
-    const res =  await signInAction(data);
-    if(!res) {
-      window.location.href = "/"
+    const res = await signInAction(data);
+    console.log(res);
+    toast.warn(res?.message, {
+      position: 'top-center',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'light',
+      transition: Slide,
+    });
+    if (!res) {
+      window.location.href = '/';
     }
   };
   return (
@@ -34,7 +48,7 @@ export function SignIn() {
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="relative mt-6">
               <input
-                {...register("email")}
+                {...register('email')}
                 type="email"
                 name="email"
                 id="email"
@@ -54,7 +68,7 @@ export function SignIn() {
             )}
             <div className="relative mt-6">
               <input
-                {...register("password")}
+                {...register('password')}
                 type="password"
                 name="password"
                 id="password"
@@ -77,7 +91,7 @@ export function SignIn() {
                 type="submit"
                 className="w-full rounded-md bg-black px-3 py-4 text-white focus:bg-gray-600 focus:outline-none"
               >
-                {isSubmitting ? "登陆中..." : "登录"}
+                {isSubmitting ? '登陆中...' : '登录'}
               </button>
             </div>
             {/* <p className="text-center text-sm text-gray-500">
@@ -93,6 +107,9 @@ export function SignIn() {
           </form>
         </div>
       </div>
+      <ToastContainer
+       
+      />
     </div>
   );
 }

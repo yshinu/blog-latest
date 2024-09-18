@@ -25,6 +25,7 @@ import Link from "next/link";
 
 function NavBar() {
   const { data: session } = useSession();
+  console.log(session)
   const menuItems = ["学习", "生活", "归档"];
   return (
     <Navbar
@@ -103,7 +104,7 @@ function NavBar() {
               color="secondary"
               name="Jason Hughes"
               size="sm"
-              src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+              src={session?.user?.avatarUrl||""}
             />
           </DropdownTrigger>
           {!!session ? (
@@ -126,8 +127,8 @@ function NavBar() {
             </DropdownMenu>
           ) : (
             <DropdownMenu aria-label="Profile Actions" variant="flat">
-              <DropdownItem key="signIn" className=" bg-slate-200">
-                <Link href={"/auth/signin"} className=" text-blue-500">
+              <DropdownItem  key="signIn" className=" bg-slate-200">
+                <Link href={"/auth/signin"} className=" text-blue-500 w-full block">
                   登录
                 </Link>
               </DropdownItem>

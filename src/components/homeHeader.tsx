@@ -5,7 +5,7 @@ function HomeHeader() {
     <section>
       <section className="w-full h-[calc(100vh-71px)] relative bg-slate-600">
         <Image
-          src="/images/homeHeader.png"
+          src="/images/homeheader.png"
           alt="homeHeader"
           width={1920}
           height={1080}

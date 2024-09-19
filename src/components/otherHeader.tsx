@@ -4,7 +4,7 @@ import Link from "next/link";
 function OtherHeader() {
   return (
     <section>
-      <section className="w-full h-[calc(40vh-71px)] relative bg-slate-600 hidden sm:block">
+      <section className="w-full h-[calc(30vh-71px)] relative bg-slate-600 hidden sm:block">
         <Image
           src="/images/cover.jpg"
           alt="OtherHeader"

@@ -5,6 +5,7 @@ import { NextUIProvider } from '@nextui-org/system';
 import { SessionProvider } from 'next-auth/react';
 import NextTopLoader from 'nextjs-toploader';
 import localFont from 'next/font/local'
+import Footer from '@/components/footer';
 
 const oppo = localFont({
   src: [
@@ -28,6 +29,7 @@ export default function RootLayout({
         <NextTopLoader color='#b249f8' />
          <NavBar />
           {children}
+          <Footer/>
         </NextUIProvider>
         </SessionProvider>
        

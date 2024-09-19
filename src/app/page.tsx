@@ -1,3 +1,4 @@
+import CustomPagination from "@/components/customPagination";
 import HomeHeader from "@/components/homeHeader";
 import ListContent from "@/components/list/listContent";
 import { Metadata } from "next";
@@ -9,8 +10,10 @@ export const metadata: Metadata = {
 export default function Home(){
   return <main>
     <HomeHeader/>
-    <div className=" bg-slate-50 flex justify-center gap-24">
+    <div className=" bg-slate-50 flex-col justify-center items-center gap-24">
       <ListContent/>
+      <CustomPagination/>
     </div>
+  
   </main>
 }

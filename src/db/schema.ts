@@ -10,8 +10,9 @@ import {
     primaryKey,
     uniqueIndex,
     index,
+    AnyPgColumn,
   } from 'drizzle-orm/pg-core';
-  import { relations, sql } from 'drizzle-orm';
+  import { AnyColumn, relations, sql } from 'drizzle-orm';
   
   // 1. 用户表 (users)
   export const users = pgTable('users', {
@@ -44,8 +45,8 @@ import {
   // 4. 博文表 (blog_posts)
   export const blogPosts = pgTable('blog_posts', {
     id: serial('id').primaryKey(),
-    userId: integer('user_id').notNull(),
-    categoryId: integer('category_id').notNull(),
+    userId: integer('user_id').notNull().references(()=>users.id),
+    categoryId: integer('category_id').notNull().references(()=>categories.id),
     title: varchar('title', { length: 255 }).notNull(),
     summary: text('summary').notNull(),
     content: text('content').notNull(),
@@ -67,7 +68,6 @@ import {
     }),
     tags: many(blogPostTags),
     comments: many(comments),
-    likes: many(likes),
     views: many(views),
   }));
   
@@ -75,14 +75,12 @@ import {
   export const blogPostTags = pgTable(
     'blog_post_tags',
     {
-      blogPostId: integer('blog_post_id').notNull(),
-      tagId: integer('tag_id').notNull(),
+      blogPostId: integer('blog_post_id').notNull().references(()=>blogPosts.id),
+      tagId: integer('tag_id').notNull().references(()=>tags.id),
     },
     (table) => ({
         primaryKey: primaryKey({ columns: [table.blogPostId, table.tagId] }), 
-      // 索引
-      blogPostIdIndex: index('idx_blog_post_id').on(table.blogPostId),
-      tagIdIndex: index('idx_tag_id').on(table.tagId),
+  
     })
   );
   
@@ -101,9 +99,9 @@ import {
   // 6. 评论表 (comments)
   export const comments = pgTable('comments', {
     id: serial('id').primaryKey(),
-    blogPostId: integer('blog_post_id').notNull(),
-    userId: integer('user_id').notNull(),
-    parentCommentId: integer('parent_comment_id'), // 默认可空，无需 .nullable()
+    blogPostId: integer('blog_post_id').notNull().references(()=>blogPosts.id),
+    userId: integer('user_id').notNull().references(()=>users.id),
+    parentCommentId: integer('parent_comment_id').references(():AnyPgColumn=>comments.id), // 默认可空，无需 .nullable()
     content: text('content').notNull(),
     createdAt: timestamp('created_at').defaultNow(),
     updatedAt: timestamp('updated_at').defaultNow().$onUpdateFn(()=>sql `now()`),
@@ -123,34 +121,9 @@ import {
       fields: [comments.parentCommentId],
       references: [comments.id],
     }),
-    likes: many(likes), // 移除 where 条件
   }));
   
   
-  // 7. 点赞表 (likes)
-  export const likes = pgTable(
-    'likes',
-    {
-      id: serial('id').primaryKey(),
-      userId: integer('user_id').notNull(),
-      likeableType: varchar('likeable_type', { length: 50 }).notNull(), // 'blog_post' 或 'comment'
-      likeableId: integer('likeable_id').notNull(),
-      createdAt: timestamp('created_at').defaultNow(),
-    },
-    (table) => ({
-      // 索引
-      likeableIndex: index('idx_likeable').on(table.likeableType, table.likeableId),
-    })
-  );
-  
-  // 定义 likes 表与 users 表的关系
-  export const likesRelations = relations(likes, ({ one }) => ({
-    user: one(users, {
-      fields: [likes.userId],
-      references: [users.id],
-    }),
-    // 多态关联需要在应用逻辑中处理
-  }));
   
   // 8. 浏览记录表 (views)
   export const views = pgTable('views', {

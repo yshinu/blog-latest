@@ -12,7 +12,7 @@ function PostItem({ id }: { id: string }) {
         shadow="sm"
       >
         <CardBody>
-          <div className="w-full flex flex-col sm:flex-row sm:items-center sm:gap-12 sm:justify-start justify-center">
+          <div className="w-full flex flex-col p-4 sm:flex-row sm:items-center sm:gap-12 sm:justify-start justify-center">
             <div className={`w-full h-[100px] sm:max-w-[240px] sm:max-h-[200px] ${(+id)%2===0?"sm:order-1":"sm:order-2"}`}>
               <Link href={`/article/content/${id}`}>
                 <Image

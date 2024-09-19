@@ -1,7 +1,8 @@
 import { BookText, Calculator, Calendar, Flame, Tag } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-
+import {Maven_Pro} from 'next/font/google'
+const maven = Maven_Pro({ subsets: ['latin'] })
 function OtherHeader() {
   return (
     <section>
@@ -14,8 +15,8 @@ function OtherHeader() {
           className="h-full w-full object-cover object-center"
         />
 
-        <div className="absolute flex items-center justify-center text-white flex-col gap-8  inset-0 backdrop-blur-md bg-white/30 bg-opacity-20 z-10 z-10">
-          <h3 className="tracking-tight inline font-semibold from-[#bc6dba] to-[#b249f8] text-[2.5rem] lg:text-5xl bg-clip-text text-transparent bg-gradient-to-b">
+        <div className="absolute flex items-center justify-center text-white flex-col gap-8  inset-0 backdrop-blur-md bg-white/30 bg-opacity-20 z-10">
+          <h3 className={`${maven.className} tracking-tight inline font-semibold  text-[#b249f8] text-[2.5rem] sm:text-5xl `}>
             如何学习Nextjs？
           </h3>
           <div className="sm:flex gap-4 items-center flex-wrap text-black hidden ">

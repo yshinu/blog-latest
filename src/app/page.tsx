@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: '一个分享学习和生活的个人博客页面',
 }
 export default function Home(){
-  return <main >
+  return <main>
     <HomeHeader/>
     <div className=" bg-slate-50 flex justify-center gap-24">
       <ListContent/>

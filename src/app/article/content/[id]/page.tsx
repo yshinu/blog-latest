@@ -12,7 +12,17 @@ const page = () => {
         <div className="markdown-body">
           <Markdown
             remarkPlugins={[remarkGfm]}
-            children={`# 如何学好nextjs`}
+            children={`# 如何学好nextjs
+              
+              Next.js 是一个基于 React 的强大框架，专注于构建高性能和可扩展的
+                Web
+                应用程序。它提供了许多开箱即用的功能，如服务器端渲染（SSR）、静态生成（SSG）、API
+                路由和自动代码拆分，使开发者能够快速构建现代化的用户界面。 Web
+                应用程序。它提供了许多开箱即用的功能，如服务器端渲染（SSR）、静态生成（SSG）、API
+                路由和自动代码拆分，使开发者能够快速构建现代化的用户界面。 Web
+                应用程序。它提供了许多开箱即用的功能，如服务器端渲染（SSR）、静态生成（SSG）、API
+                路由和自动代码拆分，使开发者能够快速构建现代化的用户界面。
+              `}
             components={{
               code(props) {
                 const { children, className, node, ...rest } = props;

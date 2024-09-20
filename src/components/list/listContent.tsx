@@ -8,7 +8,7 @@ type HomeBlog = {
 function ListContent({
   blogs,
 }: {
-  blogs: Array<>;
+  blogs: Array<any>;
 }) {
   return (
     <div className="w-full">

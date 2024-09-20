@@ -1,6 +1,7 @@
+"use server"
 import { db } from '@/db/db';
 import { blogPosts } from '@/db/schema';
-import { desc, eq } from 'drizzle-orm';
+import { count,  desc, eq } from 'drizzle-orm';
 
 export async function getPostWithPage(page: number) {
   const pageSize = 5;
@@ -49,5 +50,13 @@ export async function getPostbyId(id:number) {
   return post
   
 }
+
+ export const getTotal =async ()=>{
+  const blogsCount =await db.select({count:count()}).from(blogPosts).then((res)=>res[0].count)
+
+  return blogsCount
+}
+ 
+
 export type PostWithPageResult = Awaited<ReturnType<typeof getPostWithPage>>;
 export type Post = Awaited<ReturnType<typeof getPostbyId>>;

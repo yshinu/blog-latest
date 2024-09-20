@@ -19,7 +19,6 @@ export function SignIn() {
   });
   const onSubmit: SubmitHandler<signInObjectType> = async (data) => {
     const res = await signInAction(data);
-    console.log(res);
     toast.warn(res?.message, {
       position: 'top-center',
       autoClose: 3000,

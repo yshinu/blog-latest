@@ -1,4 +1,5 @@
 import OtherHeader from "@/components/otherHeader";
+import { oppo } from "../global";
 
 export default function RootLayout({
   children,
@@ -7,7 +8,7 @@ export default function RootLayout({
 }>) {
   return (
 
-       <div>
+       <div className={oppo.className}>
          <OtherHeader/>
           <div className="flex justify-center">
           {children}

@@ -1,27 +1,26 @@
 import { Spacer } from '@nextui-org/spacer';
 import PostItem from './postItem';
-import { Pagination } from '@nextui-org/pagination';
-import { blogPosts } from '@/db/schema';
-type HomeBlog = {
-  
-}
-function ListContent({
-  blogs,
+import { getPostWithPage } from '@/action/getPostsAction';
+async function ListContent({
+  currentpage,
 }: {
-  blogs: Array<any>;
+  currentpage:number;
 }) {
+  // await new Promise((resolve) => setTimeout(resolve, 511000));
+  const blogs = await getPostWithPage(currentpage)
+  
   return (
-    <div className="w-full">
+    <ul className="w-full list-none">
       {blogs.map((item) => {
         return (
-          <>
+          <li key={item.id}>
             <Spacer y={4} />
-            <PostItem id="1" />
-          </>
+            <PostItem origindata = {item} />
+          </li>
         );
       })}
       <Spacer y={4} />
-    </div>
+    </ul>
   );
 }
 

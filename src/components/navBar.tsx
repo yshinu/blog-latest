@@ -25,7 +25,6 @@ import Link from "next/link";
 
 function NavBar() {
   const { data: session } = useSession();
-  console.log(session)
   const menuItems = ["学习", "生活", "归档"];
   return (
     <Navbar

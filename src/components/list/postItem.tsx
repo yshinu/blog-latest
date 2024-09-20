@@ -1,9 +1,11 @@
+import { PostWithPageResult } from "@/action/getPostsAction";
 import { Button } from "@nextui-org/button";
 import { Card, CardBody } from "@nextui-org/card";
 import { BookText, Calculator, Calendar, Flame, Tag } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-function PostItem({ id }: { id: string }) {
+import dayjs from "dayjs";
+function PostItem({ origindata }:{origindata: PostWithPageResult[number]}) {
   return (
     <div className="w-full  flex items-center justify-center">
       <Card
@@ -13,10 +15,10 @@ function PostItem({ id }: { id: string }) {
       >
         <CardBody>
           <div className="w-full flex flex-col p-4 sm:flex-row sm:items-center sm:gap-12 sm:justify-start justify-center">
-            <div className={`w-full h-[100px] sm:max-w-[240px] sm:max-h-[200px] ${(+id)%2===0?"sm:order-1":"sm:order-2"}`}>
-              <Link href={`/article/content/${id}`}>
+            <div className={`w-full h-[100px] sm:max-w-[240px] sm:max-h-[200px] ${(+origindata.id)%2===0?"sm:order-1":"sm:order-2"}`}>
+              <Link href={`/article/content/${origindata.id}`}>
                 <Image
-                  src="/images/cover.jpg"
+                  src={origindata.cover || "/images/cover.jpg"}
                   alt="NextUI Album Cover"
                   width={200}
                   height={160}
@@ -24,45 +26,38 @@ function PostItem({ id }: { id: string }) {
                 />
               </Link>
             </div>
-            <div className={`flex flex-col gap-4 order-1  ${(+id)%2===0?"sm:order-2":"sm:order-1"}`}>
-              <Link href={`/article/content/${id}`}>
+            <div className={`flex flex-col gap-4 order-1  ${(+origindata.id)%2===0?"sm:order-2":"sm:order-1"}`}>
+              <Link href={`/article/content/${origindata.id}`}>
                 <h4 className=" font-bold test-4xl cursor-pointer">
-                  如何学习Nextjs？
+                  {origindata.title}
                 </h4>
               </Link>
 
               <p className=" line-clamp-3">
-                Next.js 是一个基于 React 的强大框架，专注于构建高性能和可扩展的
-                Web
-                应用程序。它提供了许多开箱即用的功能，如服务器端渲染（SSR）、静态生成（SSG）、API
-                路由和自动代码拆分，使开发者能够快速构建现代化的用户界面。 Web
-                应用程序。它提供了许多开箱即用的功能，如服务器端渲染（SSR）、静态生成（SSG）、API
-                路由和自动代码拆分，使开发者能够快速构建现代化的用户界面。 Web
-                应用程序。它提供了许多开箱即用的功能，如服务器端渲染（SSR）、静态生成（SSG）、API
-                路由和自动代码拆分，使开发者能够快速构建现代化的用户界面。
+                {origindata.summary}
               </p>
 
               <div className="flex gap-4 items-center flex-wrap text-slate-600">
                 <Link href={"#"} className="flex items-center gap-1">
                   <Calendar color="#6F42C1" />
-                  <span>2024-05-05 16:48</span>
+                  <span>{dayjs(origindata.createdAt).format("YYYY-MM-DD HH:mm:ss")}</span>
                 </Link>
                 <Link href={"#"} className="flex items-center gap-1">
                   <BookText color="#6F42C1" />
-                  <span>学习</span>
-                </Link>
-                <Link href={"#"} className="flex items-center gap-1">
-                  <Tag color="#6F42C1" />
-                  <span>Nextjs</span>
+                  <span>{origindata.category.name}</span>
                 </Link>
                 <Link href={"#"} className="flex items-center gap-1">
                   <Flame color="#6F42C1" />
-                  <span>180</span>
+                  <span>{origindata.viewCount}</span>
                 </Link>
-                <Link href={"#"} className="flex items-center gap-1">
-                  <Calculator color="#6F42C1" />
-                  <span>5866字</span>
-                </Link>
+               {origindata.tags.map((item) => {
+                 return (
+                   <Link key={item.tagId} href={"#"} className="flex items-center gap-1">
+                     <Tag color="#6F42C1" />
+                     <span>{item.tag.name}</span>
+                   </Link>
+                 );
+               })}
               </div>
             </div>
           </div>

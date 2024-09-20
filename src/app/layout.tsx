@@ -4,18 +4,11 @@ import './globals.css';
 import { NextUIProvider } from '@nextui-org/system';
 import { SessionProvider } from 'next-auth/react';
 import NextTopLoader from 'nextjs-toploader';
-import localFont from 'next/font/local'
-import Footer from '@/components/footer';
 
-const oppo = localFont({
-  src: [
-    {
-      path: '../../public/fonts/opposans.woff2',
-      weight: '400',
-      style: 'normal',
-    },
-  ]
-})
+import Footer from '@/components/footer';
+import { oppo } from './global';
+
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -23,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={oppo.className}>
+      <body className={`${oppo.variable} font-sans`}>
         <SessionProvider>
         <NextUIProvider>
         <NextTopLoader color='#b249f8' />

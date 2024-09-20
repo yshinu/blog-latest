@@ -27,7 +27,7 @@ function OtherHeader() {
             </Link>
             <Link href={"#"} className="flex items-center gap-1">
               <BookText color="#6F42C1" />
-              <span>学习</span>
+              <span>{searchParams.get("category")}</span>
             </Link>
             <Link href={"#"} className="flex items-center gap-1">
               <Flame color="#6F42C1" />
@@ -42,15 +42,15 @@ function OtherHeader() {
       </section>
       <section className="w-full h-[150px] sm:hidden flex items-center justify-center relative">
         <Image
-          src="/images/cover.jpg"
+          src={searchParams.get("cover")||"/images/cover.jpg"}
           alt="OtherHeader"
           width={1920}
           height={1080}
           className="h-full w-full object-cover object-center"
         />
         <div className=" absolute inset-0 flex justify-center items-center  backdrop-blur-md bg-white/30 bg-opacity-20 z-10">
-        <h3 className="tracking-tight inline font-semibold from-[#bc6dba] to-[#b249f8] text-[1.5rem]  bg-clip-text text-transparent bg-gradient-to-b">
-          如何学习Nextjs？
+        <h3 className="flex p-3 font-semibold  text-[#b249f8] text-[1.5rem]  ">
+          {searchParams.get("title")}
         </h3>
         </div>
       </section>

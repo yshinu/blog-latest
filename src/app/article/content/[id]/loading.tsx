@@ -1,5 +1,7 @@
+import ContentLoading from "@/components/contentLoading";
+
 function Loading() {
-    return ( <div>加载中</div> );
+    return ( <ContentLoading/> );
 }
 
 export default Loading;

@@ -20,7 +20,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       authorize: async (credentials) => {
         const parsedCredentials = signInSchema.safeParse(credentials);
         if (!parsedCredentials.success) {
-          console.error('数据格式验证失败:', parsedCredentials.error.errors);
           return null;
         }
         const { email, password } = parsedCredentials.data;

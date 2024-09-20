@@ -11,7 +11,6 @@ function CustomPagination() {
   const [total,setTotal] = useState(5)
   const [currentPage,setCurrentPage] = useState(1)
   useEffect(()=>{
-    console.log("走我了")
     const searchParamPage = +searchParams.get("page")!
     if(Number.isNaN(searchParamPage)){
       setCurrentPage(1)

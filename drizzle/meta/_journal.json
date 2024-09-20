@@ -8,6 +8,13 @@
       "when": 1726638981924,
       "tag": "0000_green_eternity",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1726746865939,
+      "tag": "0001_short_thunderbolt",
+      "breakpoints": true
     }
   ]
 }

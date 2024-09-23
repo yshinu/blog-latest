@@ -31,7 +31,7 @@ export function SignIn() {
       transition: Slide,
     });
     if (!res) {
-      window.location.href = '/';
+      window.location.href = '/home';
     }
   };
   return (

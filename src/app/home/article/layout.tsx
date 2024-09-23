@@ -1,5 +1,6 @@
+import { oppo } from "@/app/global";
 import OtherHeader from "@/components/otherHeader";
-import { oppo } from "../global";
+
 
 export default function RootLayout({
   children,

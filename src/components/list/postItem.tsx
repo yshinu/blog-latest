@@ -38,7 +38,7 @@ function PostItem({ origindata }: { origindata: PostWithPageResult[number] }) {
                 +origindata.id % 2 === 0 ? 'sm:order-2' : 'sm:order-1'
               }`}
             >
-              <Link href={`/article/content/${origindata.id}?title=${origindata.title}&cover=${origindata.cover}&createdAt=${dayjs(origindata.createdAt).format('YYYY-MM-DD HH:mm:ss')}&category=${origindata.category.name}`}>
+              <Link href={`/home/article/content/${origindata.id}?title=${origindata.title}&cover=${origindata.cover}&createdAt=${dayjs(origindata.createdAt).format('YYYY-MM-DD HH:mm:ss')}&category=${origindata.category.name}`}>
                 <h4 className=" font-bold test-4xl cursor-pointer">
                   {origindata.title}
                 </h4>

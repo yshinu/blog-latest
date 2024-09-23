@@ -36,7 +36,7 @@ function NavBar() {
     >
       <NavbarBrand>
         <Image src={"/icons/logo.png"} alt={"logo"} width={30} height={30} />
-        <Link href={"/"} className="font-bold text-inherit">
+        <Link href={"/home"} className="font-bold text-inherit">
           你好哈哈
         </Link>
       </NavbarBrand>
@@ -45,14 +45,14 @@ function NavBar() {
           <Link
             color="foreground"
             className="flex items-center gap-1 text-lg"
-            href="/article/study?title=学习"
+            href="/home/article/study?title=学习"
           >
             <Image src={"/icons/xx.svg"} alt={"学习"} width={16} height={16} />
             学习
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="/article/life?title=生活" className="flex items-center gap-1 text-lg">
+          <Link href="/home/article/life?title=生活" className="flex items-center gap-1 text-lg">
             <Image src={"/icons/sh.svg"} alt={"生活"} width={16} height={16} />
             生活
           </Link>
@@ -60,7 +60,7 @@ function NavBar() {
         <NavbarItem>
           <Link
             color="foreground"
-            href="/article/away?title=归档"
+            href="/home/article/away?title=归档"
             className="flex items-center gap-1 text-lg"
           >
             <Image src={"/icons/gd.svg"} alt={"归档"} width={16} height={16} />
@@ -116,7 +116,7 @@ function NavBar() {
               <DropdownItem
                 onClick={async () => {
                   await signOutAction();
-                  window.location.href = "/"
+                  window.location.href = "/home"
                 }}
                 key="logout"
                 className=" bg-slate-200"

@@ -45,14 +45,14 @@ function NavBar() {
           <Link
             color="foreground"
             className="flex items-center gap-1 text-lg"
-            href="#"
+            href="/article/study?title=学习"
           >
             <Image src={"/icons/xx.svg"} alt={"学习"} width={16} height={16} />
             学习
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="#" className="flex items-center gap-1 text-lg">
+          <Link href="/article/life?title=生活" className="flex items-center gap-1 text-lg">
             <Image src={"/icons/sh.svg"} alt={"生活"} width={16} height={16} />
             生活
           </Link>
@@ -60,7 +60,7 @@ function NavBar() {
         <NavbarItem>
           <Link
             color="foreground"
-            href="#"
+            href="/article/away?title=归档"
             className="flex items-center gap-1 text-lg"
           >
             <Image src={"/icons/gd.svg"} alt={"归档"} width={16} height={16} />

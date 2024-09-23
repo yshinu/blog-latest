@@ -1,6 +1,7 @@
 import { Spacer } from '@nextui-org/spacer';
 import PostItem from './postItem';
 import { getPostWithPage } from '@/action/getPostsAction';
+import { BackgroundLines } from '../ui/background-lines';
 async function ListContent({
   currentpage,
 }: {
@@ -11,7 +12,7 @@ async function ListContent({
   
   return (
     <ul className="w-full list-none">
-      {blogs.map((item) => {
+          {blogs.map((item) => {
         return (
           <li key={item.id}>
             <Spacer y={4} />
@@ -19,6 +20,8 @@ async function ListContent({
           </li>
         );
       })}
+
+     
       <Spacer y={4} />
     </ul>
   );

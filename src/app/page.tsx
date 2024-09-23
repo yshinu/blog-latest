@@ -22,7 +22,7 @@ export default  function Home({searchParams}:{
   
   return <main>
     <HomeHeader/>
-    <div className=" bg-slate-50 flex-col justify-center items-center gap-24">
+    <div className=" bg-slate-50 flex-col  justify-center items-center gap-24">
       <Suspense fallback={<PostListSkeleton/>}>
       <ListContent currentpage={currentpage}/>
       </Suspense>

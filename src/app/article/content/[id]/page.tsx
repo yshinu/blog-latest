@@ -19,7 +19,7 @@ const page = async ({
   }
   const post = await getPostbyId(postId);
   return (
-    <Card className=" max-w-[900px] mt-10 sm:p-4 p-1 w-full mx-3 sm:w-5/6">
+    <Card className="  max-w-[900px] my-10 sm:p-4 p-1 w-full mx-3 sm:w-5/6">
       <CardBody>
         <div className="markdown-body">
           <Markdown

@@ -10,7 +10,7 @@ export default function RootLayout({
 
        <div className={oppo.className}>
          <OtherHeader/>
-          <div className="flex justify-center">
+          <div className="flex justify-center  bg-grid-black/[0.1] ">
           {children}
           </div>
        </div>

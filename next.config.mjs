@@ -6,6 +6,10 @@ const nextConfig = {
                 protocol: 'https',
                 hostname: 'file.933331.xyz',
             },
+            {
+                protocol: 'https',
+                hostname: 'assets.aceternity.com',
+            }
         ],
     }
 };

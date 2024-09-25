@@ -8,7 +8,7 @@ export default function RootLayout({
 }>) {
   return (
     <main>
-      <NextTopLoader color="#b249f8" />
+
       <NavBar />
       {children}
       <Footer />
